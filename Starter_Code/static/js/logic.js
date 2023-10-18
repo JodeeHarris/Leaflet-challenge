@@ -1,9 +1,9 @@
 url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson"
 depth = function(d){
     if (d >= 90) {
-         return "red"}
+         return "maroon"}
          else if (d>=70){
-            return "green"
+            return "red"
          }
          else if (d>=50){
             return "orange"
@@ -12,7 +12,7 @@ depth = function(d){
             return "yellow"
          }
          else {
-            return "blue"
+            return "lime"
          }
 }
 d3.json(url).then(function(eqData){
@@ -30,7 +30,7 @@ d3.json(url).then(function(eqData){
                 color: depth(feature.geometry.coordinates[2]),
                 fillColor: depth(feature.geometry.coordinates[2]),
                 opacity: 1,
-                fillOpacity: .7, 
+                fillOpacity: .3, 
                 radius: feature.properties.mag * 10
             })
         },
